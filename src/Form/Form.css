@@ -1,0 +1,39 @@
+.formulario{
+    background-color: white;
+    padding: 2.5rem 2.5rem 2.5rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10rem;
+    background: linear-gradient(140deg,
+    #234E70 47.5%, 
+    #C29A23 60%);
+    border-radius: 1rem;
+    box-shadow: 0.4rem 0.5rem var(--box-shadow-color);
+    --box-shadow-color:black;
+}
+
+.titulo{
+    color: #E0B941;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+.textBox{
+    margin-bottom: 2rem;
+    background-color: rgb(222, 221, 135);
+    border-color: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    resize: none;
+}
+
+.boton{
+    background: none;
+    border-color: #E0B941;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    color: white;
+    font-family: monospace;
+    margin: 0.5rem 0.6rem 0 0.6rem;
+}

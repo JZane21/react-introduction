@@ -1,0 +1,45 @@
+.EntradaDeDatos{
+    padding: 1rem;
+    margin: 0 0 0 1rem;
+    border-radius: 1rem;
+    border-color: black;
+    font-size: 2rem;
+    background-color: rgb(222, 221, 135);
+    outline: none;
+}
+
+.padreSearcher{
+    display: flex;
+}
+
+.flexBox{
+    flex-direction: row;
+    align-self: center;
+}
+
+.App-image {
+    background-color: #282c34;
+    font-size: calc(10px + 2vmin);
+}
+  
+.App-logo {
+    height: 40vmin;
+    pointer-events: none;
+    max-width: 6rem;
+    max-height: 6rem;
+}
+  
+@media (prefers-reduced-motion: no-preference) {
+.App-logo {
+    animation: App-logo-spin infinite 20s linear;
+}
+}
+
+@keyframes App-logo-spin {
+from {
+    transform: rotate(0deg);
+}
+to {
+    transform: rotate(360deg);
+}
+}

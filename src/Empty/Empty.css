@@ -1,0 +1,47 @@
+.EmptyTarea-container{
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 2.5rem 0 2.5rem 0;
+    padding: 1rem;
+    box-shadow: 0 0 2rem #C29A23;
+    border-radius: 2rem;
+    min-width: 43.6rem;
+    max-width: 43.6rem;
+}
+
+.EmptyTarea-text{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.EmptySection{
+    display: flex;
+}
+
+.EmptyTareaIcon{
+    border-radius: 5rem;
+    height: 4.8rem;
+    width: 4.8rem;
+    left: 1.2rem;
+    margin: 0 1rem 0 1rem;
+    box-shadow: 0.25rem 0.30rem var(--box-shadow-color);
+    --box-shadow-color:black;
+    background: linear-gradient(140deg,#C29A23 45%, #234E70 55%);
+    background-size: 400% 400%;
+    animation: emptyAnimation 3s ease-in-out infinite;
+}
+
+@keyframes emptyAnimation {
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
+}

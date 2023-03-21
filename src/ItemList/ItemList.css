@@ -1,0 +1,6 @@
+.Lista{
+    margin: 0 1rem 0 1rem;
+    list-style: none;/* quitando el indicardor del elemento de una lista */
+    display: inline-block;
+    border: 1rem;
+}
