@@ -13,7 +13,7 @@ function CreateButton(props){
 
     return(
         <button 
-        className={"BotonAgregar Volteando"}
+        className="BotonAgregar Volteando"
         // con onAlgo, podremos escuchar todos los eventos
         // que hagan nuestros usuarios en nuestra aplicacion
         
