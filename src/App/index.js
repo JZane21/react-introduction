@@ -1,6 +1,13 @@
 import React from 'react';
+
+// Proyecto Original
 import { AppUI } from './AppUI';
 import { TareaProvider } from '../TareaContext';
+// import { Counter } from '../Counter';
+// import { Item } from '../Item';
+// import { ItemList } from '../ItemList';
+// import { Search } from '../Search';
+
 // const arregloTareas=[
 //   { text:'Cortar cebolla', completed:false },
 //   { text:'Tomar mucha agua', completed:false },
@@ -8,6 +15,73 @@ import { TareaProvider } from '../TareaContext';
 //   { text:'Enrique le devolvera sus lapices a Ander', completed:true },
 //   { text:'Do your english homework', completed:true }
 // ];
+
+
+
+/* //--- NO BORRAR ---
+
+// Forma alternativa de construir la App
+// del curso anterior
+function App(){
+  // inicializando un estado en nuestra app
+  const [state, setState] = React.useState('estado compartido');
+  return (
+    <React.Fragment>
+      <Header>
+        <Counter/>
+        <Search/>
+      </Header>
+      
+      <ItemList>
+        <Item state={state}/>
+      </ItemList>
+    </React.Fragment>
+  );
+}
+
+function Header({children}){
+  return (
+    <header>
+      {children}
+    </header>
+  );
+}
+
+function ItemList({children}){
+  return (
+    <section className="TodoList-Container">
+      {children}
+    </section>
+  );
+}
+
+function Counter(){
+  return (
+    <p>
+      Counter App
+    </p>
+  );
+}
+
+function Search(){
+  return (
+    <p>
+      Search App
+    </p>
+  );
+}
+
+function Item({state}){
+  return (
+    <p>
+      Item {state}
+    </p>
+  );
+}
+
+*/ //--- NO BORRAR ---
+
+// Proyecto Original
 function App(){
   return(
     <TareaProvider>
