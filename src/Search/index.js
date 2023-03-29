@@ -1,13 +1,12 @@
 import React from "react";
-import { TareaContext } from "../TareaContext";
+// import { TareaContext } from "../TareaContext";
 import './Search.css';
 import logo from './logo.svg';
 
-function Search(){
-    const {
-        searchValue,
-        setSearchValue
-    } = React.useContext(TareaContext);
+function Search({
+    searchValue,
+    setSearchValue
+}){
     // agregar estado a nuestro componente con funciones
 
     //estado

@@ -1,12 +1,21 @@
 import React from 'react';
 
 // Proyecto Original
-import { AppUI } from './AppUI';
-import { TareaProvider } from '../TareaContext';
-// import { Counter } from '../Counter';
-// import { Item } from '../Item';
-// import { ItemList } from '../ItemList';
-// import { Search } from '../Search';
+// import { AppUI } from './AppUI';
+// import { TareaProvider } from './useTareas';
+import { useTareas } from './useTareas';
+import './App.css';
+import { Header } from "../Header";
+import { Counter } from '../Counter';
+import { Search } from '../Search';
+import { CreateButton } from '../CreateButton';
+import { ItemList } from '../ItemList';
+import { Item } from '../Item';
+import { Modal } from "../Modal";
+import { Form } from "../Form";
+import { Error } from "../Error";
+import { Loading } from "../Loading";
+import { Empty } from "../Empty";
 
 // const arregloTareas=[
 //   { text:'Cortar cebolla', completed:false },
@@ -83,11 +92,82 @@ function Item({state}){
 
 // Proyecto Original
 function App(){
-  return(
-    <TareaProvider>
-      <AppUI/>
-    </TareaProvider>
+
+  const {
+    error, 
+    loading, 
+    tareasBuscadas, 
+    tareasHechas, 
+    tareasEliminadas,
+    tareasCanceladas,
+    openModal,
+    tareasTotales,
+    tareasCompletadas,
+    searchValue,
+    setSearchValue,
+    agregarTarea,
+    setOpenModal,
+    
+  } = useTareas();
+
+  return (
+    // instanciando una etiqueta invicible en React
+    <React.Fragment>
+
+    <Header>
+        <Counter
+            tareasTotales={tareasTotales}
+            tareasCompletadas={tareasCompletadas}
+        />
+
+        {(!loading && tareasTotales!==0 && !error) && 
+            <Search
+                searchValue={searchValue}
+                setSearchValue={setSearchValue}
+            />
+        }
+    </Header>
+
+    <ItemList>
+        {error && <Error error={error} />}
+        {loading && <Loading loading={"Cargando..."} />}
+        {(!loading && !tareasBuscadas.length) && 
+        <Empty vacio={"No hay tareas registradas"}/>}
+
+        {tareasBuscadas.map(tarea => (
+        <Item 
+            key={tarea.text}
+            text={tarea.text}
+            completed={tarea.completed}
+            onCanceled={()=>tareasCanceladas(tarea.text)}
+            onCompleted={()=>tareasHechas(tarea.text)}
+            onDeleted={()=>tareasEliminadas(tarea.text)}
+        />
+        ))}
+    </ItemList>
+
+    {openModal && (
+    <Modal>
+        <Form
+          agregarTarea={agregarTarea}
+          setOpenModal={setOpenModal}
+        />
+    </Modal>
+    )}
+
+    {(!loading && !error) && <CreateButton  
+        openModal = {openModal}
+        setOpenModal={setOpenModal}
+    />}
+
+  </React.Fragment>
   );
+
+  // return(
+  //   <TareaProvider>
+  //     <AppUI/>
+  //   </TareaProvider>
+  // );
 }
 
 

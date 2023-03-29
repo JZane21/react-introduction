@@ -1,9 +1,9 @@
 import React from "react";
 import { useLocalStorage } from "./useLocalStorage";
 
-const TareaContext = React.createContext();
+// const TareaContext = React.createContext();
 
-function TareaProvider(propiedades){
+function useTareas(){
     const {
         item: tareas,
         saveItem: saveTareas, 
@@ -97,25 +97,21 @@ function TareaProvider(propiedades){
     
     // console.log('Esto se deberia ejecutar luego del useEffect');
 
-    return(
-        <TareaContext.Provider value={{
-            loading,
-            error,
-            searchValue,
-            setSearchValue,
-            tareasTotales,
-            agregarTarea,
-            tareasHechas,
-            tareasCanceladas,
-            tareasEliminadas,
-            tareasCompletadas,
-            tareasBuscadas,
-            openModal, 
-            setOpenModal,
-        }}>
-            {propiedades.children}
-        </TareaContext.Provider>
-    );
+    return {
+        loading,
+        error,
+        searchValue,
+        setSearchValue,
+        tareasTotales,
+        agregarTarea,
+        tareasHechas,
+        tareasCanceladas,
+        tareasEliminadas,
+        tareasCompletadas,
+        tareasBuscadas,
+        openModal, 
+        setOpenModal,
+    };
 }
 
-export { TareaContext, TareaProvider };
+export { useTareas };

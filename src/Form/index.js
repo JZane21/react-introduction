@@ -1,15 +1,12 @@
 import React from "react";
 import './Form.css';
-import { TareaContext } from "../TareaContext";
 
-function Form(){
+function Form({
+    agregarTarea,
+    setOpenModal,
+}){
 
     const [newTareaValue, setNewTareaValue] = React.useState('');
-
-    const {
-        agregarTarea,
-        setOpenModal,
-    } = React.useContext(TareaContext);
 
     const onWrite = (evento) => {
         setNewTareaValue(evento.target.value);

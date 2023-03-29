@@ -1,12 +1,12 @@
 import React from "react";
-import { TareaContext } from "../TareaContext";
+// import { TareaContext } from "../TareaContext";
 import './Counter.css';
 
-function Counter(){
-    const { 
-        tareasTotales,
-        tareasCompletadas
-    } = React.useContext(TareaContext);
+function Counter({ 
+    tareasTotales,
+    tareasCompletadas
+}){
+    
     return(
         // forma 1 de trabajar con CSS
         // <h2 style={{
