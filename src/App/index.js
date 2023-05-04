@@ -16,7 +16,7 @@ import { Form } from "../Form";
 import { Error } from "../Error";
 import { Loading } from "../Loading";
 import { Empty } from "../Empty";
-import { ChangeAlertWithStorageListener } from '../ChangeAlert';
+import { ChangeAlert } from '../ChangeAlert';
 
 // const arregloTareas=[
 //   { text:'Cortar cebolla', completed:false },
@@ -109,7 +109,6 @@ function App(){
     agregarTarea,
     setOpenModal,
     sincronizeTarea,
-    tareasSincronizadas,
   } = useTareas();
 
   return (
@@ -206,7 +205,7 @@ function App(){
           setOpenModal={setOpenModal}
       />}
 
-      <ChangeAlertWithStorageListener 
+      <ChangeAlert
         sincronize={sincronizeTarea}
       />
     </main>

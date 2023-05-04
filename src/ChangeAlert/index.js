@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react'
-import { withStorageListener } from './withStorageListener';
+import React from 'react'
+import { useStorageListener } from './useStorageListener';
 import './ChangeAlert.css';
 
 const ChangeAlert= (props) => {
-    const show = props.show;
-    const toggleShow = props.toggleShow;
+    const sincronize = props.sincronize;
+    const {show,toggleShow} = useStorageListener(sincronize);
 
     if(show){
         return (
@@ -25,6 +25,4 @@ const ChangeAlert= (props) => {
     }
 };
 
-const ChangeAlertWithStorageListener = withStorageListener(ChangeAlert);
-
-export { ChangeAlertWithStorageListener }
+export { ChangeAlert }
