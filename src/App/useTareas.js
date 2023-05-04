@@ -8,7 +8,9 @@ function useTareas(){
         item: tareas,
         saveItem: saveTareas, 
         loading: loading,
-        error: error
+        error: error,
+        sincronizeItem: sincronizeTarea,
+        sincronizedItem: tareasSincronizadas
     } = useLocalStorage('TAREAS_V1',[]);
     
     // declarando nuestro estado
@@ -111,6 +113,8 @@ function useTareas(){
         tareasBuscadas,
         openModal, 
         setOpenModal,
+        sincronizeTarea,
+        tareasSincronizadas
     };
 }
 

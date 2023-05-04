@@ -2,6 +2,31 @@ import React from 'react';
 import { createPortal } from 'react-dom';
 import ReactDOM from 'react-dom/client';
 import App from './App/index.js';
+
+// HIGH order components 
+// function App(props){
+//   return (
+//     <h1>
+//       hola {props.nombre}!
+//     </h1>
+//   );
+// }
+
+// function withSaludo(saludo){
+//   return function WrappedComponentWithSaludo(WrappedComponent){
+//     return function ComponenteReal(props) {
+//       return (
+//         <>
+//           <WrappedComponent {...props}/>
+//           <p> Acompaniando al WrappedComponent</p>
+//         </>
+//       );
+//     }
+//   }
+// };
+
+// const AppWithWhatever = withSaludo('WENAS')(App);
+
 // import './index.css';
 
 // IMPORTANTE:
@@ -68,10 +93,14 @@ root.render(
   //     Esto es un parametro
   //   </h1>
   // </App>
-  <App />
+
+  // High Order Component
+  // <AppWithWhatever/>
+
+  <App/>
 );
 
-createPortal(
-  <App/>,
-  document.getElementById('modal')
-);
+// createPortal(
+//   <App/>,
+//   document.getElementById('modal')
+// );

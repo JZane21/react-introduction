@@ -1,10 +1,8 @@
 .contador{
     font-size: 2.5rem;
-
     background: linear-gradient(130deg,
     #234E70 40%, 
     #FBF8BE 60%);
-    
     color:#E0B941;
     text-align: left;
     margin: 0;

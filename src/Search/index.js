@@ -5,7 +5,8 @@ import logo from './logo.svg';
 
 function Search({
     searchValue,
-    setSearchValue
+    setSearchValue,
+    loading
 }){
     // agregar estado a nuestro componente con funciones
 
@@ -40,6 +41,7 @@ function Search({
                 // nuestro programa, mientras llamamos a nuestro
                 // metodo
                 onChange={onSearchValueChange}    
+                disabled={loading}
                 />
             </div>
             <div className="flexBox">

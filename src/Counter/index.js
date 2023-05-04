@@ -4,9 +4,15 @@ import './Counter.css';
 
 function Counter({ 
     tareasTotales,
-    tareasCompletadas
+    tareasCompletadas,
+    loading
 }){
     
+    const mostrarTexto = () => {
+        return !loading ? "Has completado "+tareasCompletadas+" de "+tareasTotales+" Pendientes"
+        : "Espere unos momentos";
+    };
+
     return(
         // forma 1 de trabajar con CSS
         // <h2 style={{
@@ -15,12 +21,11 @@ function Counter({
         // }}>Has completado 2 de 3 TODOs</h2>
 
         //forma 2 de trabajar con CSS
-        <div className="divContador">
+        <>
             <h2 className="contador">
-                Has completado {tareasCompletadas} de {tareasTotales} Pendientes
-            </h2> 
-        </div>
-        
+                {mostrarTexto()}
+            </h2>
+        </>
     );
 }
 

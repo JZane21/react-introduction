@@ -16,6 +16,7 @@ import { Form } from "../Form";
 import { Error } from "../Error";
 import { Loading } from "../Loading";
 import { Empty } from "../Empty";
+import { ChangeAlertWithStorageListener } from '../ChangeAlert';
 
 // const arregloTareas=[
 //   { text:'Cortar cebolla', completed:false },
@@ -107,29 +108,74 @@ function App(){
     setSearchValue,
     agregarTarea,
     setOpenModal,
-    
+    sincronizeTarea,
+    tareasSincronizadas,
   } = useTareas();
 
   return (
     // instanciando una etiqueta invicible en React
     <React.Fragment>
 
-    <Header>
+    <Header loading={loading}>
         <Counter
-            tareasTotales={tareasTotales}
-            tareasCompletadas={tareasCompletadas}
+          tareasTotales={tareasTotales}
+          tareasCompletadas={tareasCompletadas}
         />
 
         {(!loading && tareasTotales!==0 && !error) && 
-            <Search
-                searchValue={searchValue}
-                setSearchValue={setSearchValue}
-            />
+         <Search
+            searchValue={searchValue}
+            setSearchValue={setSearchValue}
+          />   
         }
     </Header>
+    <main className="main-container">
+      {/* {(!loading && tareasTotales!==0 && !error) && 
+      <Search
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
+        loading={loading}
+      />   
+      } */}
+      <ItemList
+        error={error}
+        loading={loading}
+        tareasBuscadas={tareasBuscadas}
+        tareasTotales={tareasTotales}
+        searchValue={searchValue}
+        onError={() => <Error error={"ERROR INESPERADO!"} />}
+        onLoading={() => <Loading loading={"Cargando..."} />}
+        onEmpty={() => <Empty vacio={"No hay elementos en la lista"} />}
+        onEmptySearchedTareas = {
+          () => (
+            <Empty/>
+          )
+        }
+        // render={tarea => (
+        //   <Item 
+        //     key={tarea.text}
+        //     text={tarea.text}
+        //     completed={tarea.completed}
+        //     onCanceled={()=>tareasCanceladas(tarea.text)}
+        //     onCompleted={()=>tareasHechas(tarea.text)}
+        //     onDeleted={()=>tareasEliminadas(tarea.text)}
+        //   />
+        // )}
+      >
+        {tarea => (
+          <Item 
+            key={tarea.text}
+            text={tarea.text}
+            completed={tarea.completed}
+            onCanceled={()=>tareasCanceladas(tarea.text)}
+            onCompleted={()=>tareasHechas(tarea.text)}
+            onDeleted={()=>tareasEliminadas(tarea.text)}
+          />
+        )}
+      </ItemList>
 
-    <ItemList>
-        {error && <Error error={error} />}
+      {/* <ItemList> */}
+        {/* {error && <Error error={error} />}
         {loading && <Loading loading={"Cargando..."} />}
         {(!loading && !tareasBuscadas.length) && 
         <Empty vacio={"No hay tareas registradas"}/>}
@@ -143,22 +189,27 @@ function App(){
             onCompleted={()=>tareasHechas(tarea.text)}
             onDeleted={()=>tareasEliminadas(tarea.text)}
         />
-        ))}
-    </ItemList>
+        ))} */}
+      {/* </ItemList> */}
 
-    {openModal && (
-    <Modal>
-        <Form
-          agregarTarea={agregarTarea}
+      {openModal && (
+      <Modal>
+          <Form
+            agregarTarea={agregarTarea}
+            setOpenModal={setOpenModal}
+          />
+      </Modal>
+      )}
+
+      {(!loading && !error) && <CreateButton  
+          openModal = {openModal}
           setOpenModal={setOpenModal}
-        />
-    </Modal>
-    )}
+      />}
 
-    {(!loading && !error) && <CreateButton  
-        openModal = {openModal}
-        setOpenModal={setOpenModal}
-    />}
+      <ChangeAlertWithStorageListener 
+        sincronize={sincronizeTarea}
+      />
+    </main>
 
   </React.Fragment>
   );

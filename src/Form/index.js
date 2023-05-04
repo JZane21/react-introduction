@@ -20,6 +20,7 @@ function Form({
         if(newTareaValue.length!==0){
             evento.preventDefault();
             agregarTarea(newTareaValue);
+            setOpenModal(false);
         }else{
             evento.preventDefault();
             alert("La tarea debe tener un texto descriptivo");

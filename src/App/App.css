@@ -9,6 +9,12 @@ html{
   margin: 0;
   padding: 0;
 }
+
+.main-container{
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
 /* .App {
   text-align: center;
 }

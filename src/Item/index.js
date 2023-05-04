@@ -7,21 +7,21 @@ function Item(Elemento){
 
     return(
         <li className="Barra">
+            <span className="Icon Icon-delete Icon-selected"
+                onClick={Elemento.onDeleted}
+            >
+                    {/* <strong>X</strong> */}
+                    <FiX/>
+            </span>
             <span className={`Icon Icon-check Icon-selected 
                 ${Elemento.completed &&'Icon-check--active'}`}
                 onClick={!Elemento.completed ? Elemento.onCompleted : 
                 Elemento.onCanceled}
             >
                     {/* <strong>&#10003;</strong> */}
-                    <FiCheck className=''/>
+                    <FiCheck/>
             </span>
-            <span className="Icon Icon-delete Icon-selected"
-                onClick={Elemento.onDeleted}
-            >
-                    {/* <strong>X</strong> */}
-                    <FiX />
-            </span>
-            <p className={`Item-p 
+            <p className={`
                 ${Elemento.completed && 'Item-p--completed'}`}>
                     {Elemento.text}
             </p>

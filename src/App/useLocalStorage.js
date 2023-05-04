@@ -5,6 +5,8 @@ import React from "react";
 // y tambien los items que hayamos guardados dentro del
 // localStorage
 function useLocalStorage(itemName, initialValue){
+    const [sincronizedItem, setSincronizedItem] = React.useState(true);
+
     const [error, setError] = React.useState(false);
   
     // con ello, indicamos que se debe simular que esta tardando
@@ -41,11 +43,12 @@ function useLocalStorage(itemName, initialValue){
           // con ello establecemos que la pagina deje de simular que esta
           // tardando 1 segundo en cargar
           setLoading(false);
+          setSincronizedItem(true);
         }catch(error){
           setError(error);
         }
       }, 3000);
-    });
+    },[sincronizedItem]);
   
   
     const saveItem = (newItem) => {
@@ -57,6 +60,11 @@ function useLocalStorage(itemName, initialValue){
         setError(error);
       }
     };
+
+    const sincronizeItem = () => {
+      setLoading(true);
+      setSincronizedItem(false);
+    };
     
     // si al enviar un react hook, se tiene que enviar mas de dos
     // estados como si se trataran de posiciones de un arreglo, podria
@@ -67,7 +75,9 @@ function useLocalStorage(itemName, initialValue){
       item,
       saveItem,
       loading,
-      error
+      error,
+      sincronizeItem,
+      sincronizedItem
     };
 }
 

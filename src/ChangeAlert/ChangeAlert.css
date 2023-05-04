@@ -1,0 +1,38 @@
+.bloque-mensaje{
+    background: rgba(32,35,41,.8);
+    position: fixed;
+    top: -1rem;
+    left: -1rem;
+    right: -1rem;
+    bottom: -1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.mensaje{
+    font-size: 1.5rem;
+    background: linear-gradient(130deg,
+    #234E70 40%, 
+    #E0B941 60%);
+    color:white;
+    padding: 2rem;
+    margin: 10px;
+    max-width: max-content;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.boton-recarga{
+    margin: 10px;
+    padding: 5px;
+    background-color: transparent;
+    border-color: #c7a53e;
+    color: white;
+    border-radius: 5px;
+    font-weight:600;
+    cursor: pointer;
+}

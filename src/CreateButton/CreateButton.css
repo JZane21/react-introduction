@@ -6,17 +6,18 @@
     display: inline-block;
     font-size: 4rem;
     margin: 1rem;
+    margin-top: 2rem;
     color: rgb(212, 210, 84);
     background: linear-gradient(140deg,
     #C29A23 40%, 
     #234E70 60%);
     border-radius: 50%;
     z-index: 1;
-    position: absolute;
+    align-self: flex-start;
 }
 
 .Volteando:active{
-    position: absolute;
+    position: relative;
     border: none;
     text-align: center;
     padding: 0 1.1rem 0 1.1rem;

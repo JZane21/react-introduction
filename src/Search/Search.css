@@ -28,6 +28,10 @@
     max-width: 6rem;
     max-height: 6rem;
 }
+
+.EntradaDeDatos:disabled{
+    opacity: 25%;
+}
   
 @media (prefers-reduced-motion: no-preference) {
 .App-logo {
